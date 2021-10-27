@@ -8,11 +8,9 @@ app.use(cors())
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-const mySecret = process.env['MONGO_URI']
-
 const mongoose = require('mongoose');
 
-mongoose.connect(mySecret);
+mongoose.connect(process.env.MONGO_URI);
 
 let exerciseSchema = new mongoose.Schema({
   description: {type: String, required: true},
